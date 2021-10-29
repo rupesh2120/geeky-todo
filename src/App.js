@@ -5,6 +5,7 @@ import ShowTask from "./components/showTask/ShowTask";
 
 function App() {
 	const [todoTask, setTodoTask] = useState([]);
+	const [editTodo, setEditTodo] = useState("");
 
 	const addTask = (todo) => {
 		if (!todo.value) {
@@ -38,13 +39,14 @@ function App() {
 
 	return (
 		<div className="App">
-			<Form onSave={addTask} />
+			<Form onSave={addTask} editTodo={editTodo} setEditTodo={setEditTodo} />
 			<div>
 				<ShowTask
 					todos={todoTask}
 					deleteTask={deleteTask}
 					checkTask={checkTask}
 					editTask={editTask}
+					setEditTodo={setEditTodo}
 				/>
 			</div>
 		</div>
