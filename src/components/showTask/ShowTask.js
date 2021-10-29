@@ -21,7 +21,7 @@ function ShowTask({ todos, deleteTask, checkTask, setEditTodo }) {
 					<input
 						type="text"
 						value={todo.value}
-						className="task-list"
+						className={`task-list ${todo.completed ? "completed" : ""}`}
 						onChange={(event) => event.preventDefault()}
 					/>
 					<button className="completed" onClick={() => editTodo(todo.id)}>

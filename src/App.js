@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Form from "./components/form/Form";
 import ShowTask from "./components/showTask/ShowTask";
 
 function App() {
-	const [todoTask, setTodoTask] = useState([]);
+	const tasks = JSON.parse(localStorage.getItem("todos")) || [];
+	const [todoTask, setTodoTask] = useState(tasks);
 	const [editTodo, setEditTodo] = useState("");
 
 	const addTask = (todo) => {
@@ -36,6 +37,10 @@ function App() {
 	const editTask = (id) => {
 		setTodoTask(todoTask.filter((todo) => todo.id !== id));
 	};
+
+	useEffect(() => {
+		localStorage.setItem("todos", JSON.stringify(todoTask));
+	}, [todoTask]);
 
 	return (
 		<div className="App">
