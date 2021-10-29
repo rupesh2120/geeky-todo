@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Form from "./components/form/Form";
+import ShowTask from "./components/showTask/ShowTask";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [todoTask, setTodoTask] = useState([]);
+
+	const addTask = (todo) => {
+		if (!todo.value) {
+			return;
+		}
+		const newTask = [todo, ...todoTask];
+
+		setTodoTask(newTask);
+	};
+
+	const deleteTask = (id) => {
+		setTodoTask(todoTask.filter((todo) => todo.id !== id));
+	};
+
+	return (
+		<div className="App">
+			<Form onSave={addTask} />
+			<div>
+				<ShowTask todos={todoTask} deleteTask={deleteTask} />
+			</div>
+		</div>
+	);
 }
 
 export default App;
