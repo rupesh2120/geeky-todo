@@ -43,7 +43,7 @@ function App() {
 	}, [todoTask]);
 
 	return (
-		<div className="App">
+		<div className="main">
 			<Form
 				onSave={addTask}
 				todos={todoTask}

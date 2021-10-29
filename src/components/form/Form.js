@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import "./Form.css";
 function Form({ todos, setTodoTask, onSave, editTodo, setEditTodo }) {
 	const [inputValue, setInputValue] = useState("");
 
@@ -61,7 +61,7 @@ function Form({ todos, setTodoTask, onSave, editTodo, setEditTodo }) {
 					type="submit"
 					disabled={inputValue.length < 1}
 				>
-					{editTodo ? "Save Changes" : "+"}
+					{editTodo ? "Save" : "Add"}
 				</button>
 			</form>
 		</div>

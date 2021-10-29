@@ -1,0 +1,62 @@
+.list {
+	margin-top: 50px;
+	margin-bottom: 10px;
+}
+
+.small-screen {
+	margin-bottom: 10px;
+}
+
+.task-input {
+	padding: 5px;
+	border-radius: 4px;
+	border: 2px solid white;
+	outline: none;
+	width: 320px;
+	background: transparent;
+	font-size: medium;
+}
+
+.edit-btn {
+	padding: 8px;
+	margin: 0px 3px;
+	width: 50px;
+	border-radius: 4px;
+	background-color: aqua;
+	text-align: center;
+	font-size: medium;
+}
+
+.complete-btn {
+	padding: 8px;
+	margin: 0px 3px;
+	width: 100px;
+	border-radius: 4px;
+	background-color: greenyellow;
+	text-align: center;
+	font-size: medium;
+}
+
+.del-btn {
+	padding: 8px;
+	margin: 0px 3px;
+	width: 80px;
+	border-radius: 4px;
+	background-color: red;
+	text-align: center;
+	font-size: medium;
+}
+.completed {
+	text-decoration: line-through;
+	opacity: 0.4;
+}
+
+@media (max-width: 570px) {
+	.small-screen {
+		margin-top: 50px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
