@@ -19,11 +19,33 @@ function App() {
 		setTodoTask(todoTask.filter((todo) => todo.id !== id));
 	};
 
+	const checkTask = (todo) => {
+		setTodoTask(
+			todoTask.map((item) => {
+				if (item.id === todo.id) {
+					return { ...item, completed: !todo.completed };
+				} else {
+					return item;
+				}
+			})
+		);
+		console.log(todoTask);
+	};
+
+	const editTask = (id) => {
+		setTodoTask(todoTask.filter((todo) => todo.id !== id));
+	};
+
 	return (
 		<div className="App">
 			<Form onSave={addTask} />
 			<div>
-				<ShowTask todos={todoTask} deleteTask={deleteTask} />
+				<ShowTask
+					todos={todoTask}
+					deleteTask={deleteTask}
+					checkTask={checkTask}
+					editTask={editTask}
+				/>
 			</div>
 		</div>
 	);
