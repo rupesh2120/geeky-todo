@@ -3,6 +3,15 @@ import React, { useState, useEffect } from "react";
 function Form({ todos, setTodoTask, onSave, editTodo, setEditTodo }) {
 	const [inputValue, setInputValue] = useState("");
 
+	const maxLengthCheck = (object) => {
+		if (object.target.value.length > object.target.maxLength) {
+			object.target.value = object.target.value.slice(
+				0,
+				object.target.maxLength
+			);
+		}
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!editTodo) {
@@ -44,9 +53,15 @@ function Form({ todos, setTodoTask, onSave, editTodo, setEditTodo }) {
 					name="text"
 					className="task-input"
 					onChange={(e) => setInputValue(e.target.value)}
+					maxLength="18"
+					onInput={maxLengthCheck}
 				/>
-				<button className="add-btn" type="submit">
-					+
+				<button
+					className="add-btn"
+					type="submit"
+					disabled={inputValue.length < 1}
+				>
+					{editTodo ? "Save Changes" : "+"}
 				</button>
 			</form>
 		</div>
