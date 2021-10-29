@@ -39,7 +39,13 @@ function App() {
 
 	return (
 		<div className="App">
-			<Form onSave={addTask} editTodo={editTodo} setEditTodo={setEditTodo} />
+			<Form
+				onSave={addTask}
+				todos={todoTask}
+				setTodoTask={setTodoTask}
+				editTodo={editTodo}
+				setEditTodo={setEditTodo}
+			/>
 			<div>
 				<ShowTask
 					todos={todoTask}
